@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         textViewCounter = findViewById(R.id.textViewCounter)
         val UpButton = findViewById<Button>(R.id.buttonUp)
-        val downButton = findViewById<Button>(R.id.buttonDown)
+        val DownButton = findViewById<Button>(R.id.buttonDown)
 
         // Učitavanje spremljene vrijednosti iz SharedPreferences
         val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
@@ -55,9 +55,18 @@ class MainActivity : AppCompatActivity() {
             textViewCounter.text = counter.toString()
         }
 
+        DownButton.setOnClickListener {
+            if (counter > 0) {
+                counter --
+                textViewCounter.text = counter.toString()
+            }
+        }
+
         // Registracija kontekstualnog izbornika za textViewCounter
         registerForContextMenu(textViewCounter)
     }
+
+
 
     // Spremanje trenutnog brojača prilikom promjene orijentacije
     override fun onSaveInstanceState(outState: Bundle) {

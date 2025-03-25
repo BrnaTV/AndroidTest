@@ -21,11 +21,12 @@ class SuccessActivity : AppCompatActivity() {
     lateinit var radioButtonPhone3: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_success)
 
-        textView = findViewById(R.id.textView)
-        editTextMessage = findViewById(R.id.textView) // Koristi EditText umjesto TextView
+        textView = findViewById(R.id.success)
+        editTextMessage = findViewById(R.id.success) // Koristi EditText umjesto TextView
         sendSMSButton = findViewById(R.id.buttonSendSMS)
         radioGroup = findViewById(R.id.radioGroup)
         radioButtonPhone1 = findViewById(R.id.radioButtonPhone1)
@@ -33,7 +34,7 @@ class SuccessActivity : AppCompatActivity() {
         radioButtonPhone3 = findViewById(R.id.radioButtonPhone3)
 
         val name = intent.getStringExtra("name")
-        textView.text = "$name, uspješno ste došli do 10 koraka."
+        textView.text = getString(R.string.success, name)
 
         sendSMSButton.setOnClickListener {
             sendSMS()
